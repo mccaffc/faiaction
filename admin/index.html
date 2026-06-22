@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FAI Action · Content Editor</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@700&family=IBM+Plex+Serif:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root{ --cod:#121212; --graphite:#1a1a1a; --iron:#2a2a2a; --ash:#5a5a5a; --pewter:#8a8a8a; --smoke:#f3f3f3; --orange:#ff4f00;
+    --mono:"IBM Plex Mono",ui-monospace,monospace; --sans:"IBM Plex Sans",system-ui,sans-serif; --cond:"IBM Plex Sans Condensed","Arial Narrow",sans-serif; --serif:"IBM Plex Serif",Georgia,serif; }
+  *{box-sizing:border-box}
+  html,body{overflow-x:clip}
+  body{margin:0;background:var(--cod);color:var(--smoke);font-family:var(--sans);font-size:14px;line-height:1.5}
+  a{color:inherit}
+  .bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    padding:16px 24px;background:rgba(18,18,18,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--iron)}
+  .bar h1{font-family:var(--cond);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:18px;margin:0}
+  .bar .sub{font-family:var(--mono);font-size:11px;color:var(--pewter);letter-spacing:.04em;margin-left:10px}
+  .actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  button,.btn{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;background:#0d0d0d;color:var(--smoke);
+    border:1px solid var(--iron);padding:8px 12px;cursor:pointer}
+  button:hover,.btn:hover{border-color:var(--orange)}
+  button.primary{background:var(--orange);color:var(--cod);border-color:var(--orange);font-weight:500}
+  main{max-width:780px;margin:0 auto;padding:32px 24px 120px}
+  .grp{border-top:1px solid var(--iron);padding:28px 0}
+  .grp:first-child{border-top:0}
+  .glabel{font-family:var(--cond);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--orange);margin:0 0 16px}
+  label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--pewter);margin:0 0 6px}
+  input,textarea{width:100%;background:#0d0d0d;color:var(--smoke);border:1px solid var(--iron);font-family:var(--serif);font-size:15px;padding:9px 11px;line-height:1.45}
+  input{font-family:var(--mono);font-size:13px}
+  textarea{resize:vertical;min-height:64px}
+  .field{margin:0 0 16px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .repeat-item{border:1px solid var(--iron);padding:16px;margin:0 0 14px;background:#151515}
+  .repeat-head{display:flex;align-items:center;justify-content:space-between;margin:0 0 12px}
+  .repeat-head .n{font-family:var(--mono);font-size:11px;color:var(--ash);letter-spacing:.1em;text-transform:uppercase}
+  .mini{font-size:11px;padding:5px 9px}
+  .mini.x{border-color:#3a2420;color:#c87a5a}
+  .mini.x:hover{border-color:var(--orange);color:var(--orange)}
+  .add{margin-top:4px}
+  .hint{font-family:var(--mono);font-size:11px;color:var(--ash);line-height:1.6;margin:8px 0 0}
+  .status{font-family:var(--mono);font-size:11px;color:var(--pewter)}
+</style>
+</head>
+<body>
+  <div class="bar">
+    <div><h1>FAI Action</h1><span class="sub">content editor</span></div>
+    <div class="actions">
+      <span class="status" id="status"></span>
+      <button id="load">Load file…</button>
+      <input type="file" id="file" accept="application/json,.json" hidden />
+      <button id="copy">Copy JSON</button>
+      <button class="primary" id="download">Download content.json</button>
+      <a class="btn" href="../" target="_blank" rel="noopener">View site ↗</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="grp">
+      <p class="glabel">Splash</p>
+      <div class="field"><label>Subtitle (small line under the lockup)</label><input id="f-subtitle" /></div>
+    </section>
+
+    <section class="grp">
+      <p class="glabel">About</p>
+      <div class="field"><label>Rail label</label><input id="f-about-label" placeholder="Our Vision" /></div>
+      <div class="field"><label>Lead sentence</label><textarea id="f-about-lead"></textarea></div>
+      <label>Body paragraphs</label>
+      <div id="paragraphs"></div>
+      <button class="add" id="add-para">+ Paragraph</button>
+    </section>
+
+    <section class="grp" data-group="0">
+      <p class="glabel">Group 1</p>
+      <div class="field"><label>Rail label</label><input class="g-label" placeholder="Team" /></div>
+      <div class="people"></div>
+      <button class="add add-person">+ Person</button>
+    </section>
+
+    <section class="grp" data-group="1">
+      <p class="glabel">Group 2</p>
+      <div class="field"><label>Rail label</label><input class="g-label" placeholder="Board" /></div>
+      <div class="people"></div>
+      <button class="add add-person">+ Person</button>
+    </section>
+
+    <section class="grp">
+      <p class="glabel">Contact</p>
+      <div class="row2">
+        <div class="field"><label>Location</label><input id="f-location" /></div>
+        <div class="field"><label>Email</label><input id="f-email" /></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label>X handle</label><input id="f-x" /></div>
+        <div class="field"><label>X URL</label><input id="f-xUrl" /></div>
+      </div>
+      <div class="field"><label>Copyright</label><input id="f-copyright" /></div>
+      <p class="hint">To publish: Download → replace <code>content.json</code> in the repo → commit &amp; push. GitHub Pages redeploys automatically. Two groups map to the site's two listings.</p>
+    </section>
+  </main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const status = (m) => { $("status").textContent = m; };
+
+function paragraphRow(text = "") {
+  const wrap = document.createElement("div");
+  wrap.className = "field"; wrap.style.display = "flex"; wrap.style.gap = "8px";
+  const ta = document.createElement("textarea"); ta.value = text; ta.className = "para";
+  const rm = document.createElement("button"); rm.className = "mini x"; rm.textContent = "×"; rm.title = "Remove";
+  rm.onclick = () => wrap.remove();
+  wrap.append(ta, rm);
+  return wrap;
+}
+
+function personRow(p = {}) {
+  const item = document.createElement("div");
+  item.className = "repeat-item personItem";
+  const head = document.createElement("div"); head.className = "repeat-head";
+  const n = document.createElement("span"); n.className = "n"; n.textContent = "Person";
+  const ctrls = document.createElement("div"); ctrls.className = "actions";
+  const up = document.createElement("button"); up.className = "mini"; up.textContent = "↑";
+  const dn = document.createElement("button"); dn.className = "mini"; dn.textContent = "↓";
+  const rm = document.createElement("button"); rm.className = "mini x"; rm.textContent = "Remove";
+  up.onclick = () => { const pv = item.previousElementSibling; if (pv) item.parentNode.insertBefore(item, pv); };
+  dn.onclick = () => { const nx = item.nextElementSibling; if (nx) item.parentNode.insertBefore(nx, item); };
+  rm.onclick = () => item.remove();
+  ctrls.append(up, dn, rm); head.append(n, ctrls);
+  const mk = (label, key, val, type) => {
+    const f = document.createElement("div"); f.className = "field";
+    const l = document.createElement("label"); l.textContent = label;
+    const inp = document.createElement(type === "area" ? "textarea" : "input"); inp.dataset.k = key; inp.value = val || "";
+    f.append(l, inp); return f;
+  };
+  const r2 = document.createElement("div"); r2.className = "row2";
+  r2.append(mk("Name", "name", p.name), mk("Title / role", "title", p.title));
+  const r3 = document.createElement("div"); r3.className = "row2";
+  r3.append(mk("LinkedIn URL", "linkedin", p.linkedin), mk("X / Twitter URL", "twitter", p.twitter));
+  const bioVal = Array.isArray(p.bio) ? p.bio.join("\n\n") : p.bio;
+  item.append(head, r2, mk("Affiliation (optional)", "org", p.org), mk("Photo path (optional)", "photo", p.photo), r3, mk("Bio (optional)", "bio", bioVal, "area"));
+  return item;
+}
+
+function groupSection(i) { return document.querySelector('.grp[data-group="' + i + '"]'); }
+
+function populate(c) {
+  c = c || {};
+  $("f-subtitle").value = (c.splash && c.splash.subtitle) || "";
+  const a = c.about || {};
+  $("f-about-label").value = a.label || "";
+  $("f-about-lead").value = a.lead || "";
+  const paras = $("paragraphs"); paras.replaceChildren();
+  (a.body || [""]).forEach((p) => paras.append(paragraphRow(p)));
+
+  [0, 1].forEach((i) => {
+    const sec = groupSection(i); const g = (c.groups || [])[i] || {};
+    sec.querySelector(".g-label").value = g.label || (i === 0 ? "Team" : "Board");
+    const people = sec.querySelector(".people"); people.replaceChildren();
+    (g.people || []).forEach((p) => people.append(personRow(p)));
+  });
+
+  const ct = c.contact || {};
+  $("f-location").value = ct.location || "";
+  $("f-email").value = ct.email || "";
+  $("f-x").value = ct.x || "";
+  $("f-xUrl").value = ct.xUrl || "";
+  $("f-copyright").value = ct.copyright || "";
+}
+
+function collect() {
+  const groups = [0, 1].map((i) => {
+    const sec = groupSection(i);
+    const people = [...sec.querySelectorAll(".personItem")].map((it) => {
+      const get = (k) => { const e = it.querySelector('[data-k="' + k + '"]'); return e ? e.value.trim() : ""; };
+      const o = { name: get("name"), title: get("title") };
+      if (get("photo")) o.photo = get("photo");
+      if (get("org")) o.org = get("org");
+      if (get("linkedin")) o.linkedin = get("linkedin");
+      if (get("twitter")) o.twitter = get("twitter");
+      if (get("bio")) o.bio = get("bio");
+      return o;
+    }).filter((p) => p.name);
+    return { label: sec.querySelector(".g-label").value.trim(), people };
+  }).filter((g) => g.people.length);
+
+  return {
+    splash: { subtitle: $("f-subtitle").value.trim() },
+    about: {
+      label: $("f-about-label").value.trim(),
+      lead: $("f-about-lead").value.trim(),
+      body: [...document.querySelectorAll("#paragraphs .para")].map((t) => t.value.trim()).filter(Boolean),
+    },
+    groups,
+    contact: {
+      location: $("f-location").value.trim(),
+      email: $("f-email").value.trim(),
+      x: $("f-x").value.trim(),
+      xUrl: $("f-xUrl").value.trim(),
+      copyright: $("f-copyright").value.trim(),
+    },
+  };
+}
+
+$("add-para").onclick = () => $("paragraphs").append(paragraphRow(""));
+document.querySelectorAll(".add-person").forEach((b) => b.onclick = () => b.parentNode.querySelector(".people").append(personRow({})));
+
+$("download").onclick = () => {
+  const blob = new Blob([JSON.stringify(collect(), null, 2) + "\n"], { type: "application/json" });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "content.json"; a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000); status("Downloaded content.json");
+};
+$("copy").onclick = async () => {
+  try { await navigator.clipboard.writeText(JSON.stringify(collect(), null, 2)); status("Copied JSON to clipboard"); }
+  catch { status("Copy failed — use Download"); }
+};
+$("load").onclick = () => $("file").click();
+$("file").onchange = (e) => {
+  const file = e.target.files[0]; if (!file) return;
+  const r = new FileReader();
+  r.onload = () => { try { populate(JSON.parse(r.result)); status("Loaded " + file.name); } catch { status("Invalid JSON"); } };
+  r.readAsText(file);
+};
+
+fetch("../content.json", { cache: "no-cache" })
+  .then((r) => { if (!r.ok) throw 0; return r.json(); })
+  .then((c) => { populate(c); status("Loaded current content.json"); })
+  .catch(() => { populate({ groups: [{ people: [{}] }, { people: [{}] }] }); status("Start fresh — or Load file to edit an existing content.json"); });
+</script>
+</body>
+</html>

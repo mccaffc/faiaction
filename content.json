@@ -1,0 +1,52 @@
+{
+  "splash": {
+    "subtitle": "501(c)(4) · Washington, DC"
+  },
+  "about": {
+    "label": "Our Vision",
+    "lead": "FAI Action exists to advance the policy innovation, coalition-building, and government affairs efforts that drive effective energy and AI policy and enhance American competitiveness.",
+    "body": [
+      "We bridge the gap between lawmakers, industry, and traditional NGOs by operationalizing the best traits of all three.",
+      "We are a 501(c)(4) organization based in Washington, DC."
+    ]
+  },
+  "groups": [
+    {
+      "label": "Team",
+      "people": [
+        {
+          "name": "Ian Mair",
+          "title": "CEO, FAI Action",
+          "photo": "assets/team/ian-mair.jpg",
+          "linkedin": "https://www.linkedin.com/in/ian-mair-policy",
+          "bio": [
+            "Ian Mair is a government relations and public policy executive with more than thirteen years of experience spanning Capitol Hill and advisory and in-house roles in the private sector. He served as vice president of the Smith-Free Group, Washington’s longest-standing bipartisan lobbying firm, and led U.S. federal and state government relations for Blockchain.com, the oldest cryptocurrency company in the world.",
+            "His Capitol Hill experience includes service on the staff of Rep. Josh Gottheimer, a senior member of the House Financial Services Committee, House Permanent Select Committee on Intelligence, and House Commission on Artificial Intelligence, and a former co-chair of the bipartisan Problem Solvers Caucus.",
+            "A coalition builder, Mair has advanced complex initiatives through Congress and Executive Branch agencies and aligned disparate stakeholders to turn proposals into durable policy outcomes. As CEO of FAI Action, he will work with policymakers, staff, agencies, and partners to advance FAI’s priorities across AI, emerging technology, energy and infrastructure, permitting, science and innovation, and American competitiveness."
+          ]
+        },
+        { "name": "Zach Graves", "title": "President, FAI Action", "photo": "assets/team/zach-graves.jpg", "linkedin": "https://www.linkedin.com/in/zachary-graves/", "twitter": "https://x.com/ZacharyGraves" },
+        { "name": "Thomas Hochman", "title": "Senior Advisor", "photo": "assets/team/thomas-hochman.jpg", "linkedin": "https://www.linkedin.com/in/thomas-hochman-538a98113/", "twitter": "https://x.com/ThomasHochman" },
+        { "name": "Max Bodach", "title": "Secretary and Treasurer, FAI Action", "photo": "assets/team/max-bodach.jpg", "linkedin": "https://www.linkedin.com/in/maxbodach/", "twitter": "https://x.com/maxbodach" },
+        { "name": "Pavan Venkatakrishnan", "title": "Senior Advisor", "photo": "assets/team/pavan-venkatakrishnan.jpg", "linkedin": "https://www.linkedin.com/in/pavan-venkatakrishnan-7356251b8/", "twitter": "https://x.com/ppavnr" }
+      ]
+    },
+    {
+      "label": "Board",
+      "people": [
+        { "name": "Zach Graves", "title": "President, FAI Action", "photo": "assets/team/zach-graves.jpg", "linkedin": "https://www.linkedin.com/in/zachary-graves/", "twitter": "https://x.com/ZacharyGraves" },
+        { "name": "Zak Kukoff", "title": "Member of the Board, FAI Action", "org": "Chair, Tech and Venture Practice, Lewis-Burke Associates", "photo": "assets/team/zak-kukoff.jpg", "linkedin": "https://www.linkedin.com/in/kukoff/", "twitter": "https://x.com/zck" },
+        { "name": "Laurent Crenshaw", "title": "Member of the Board, FAI Action", "org": "VP, Government Affairs, ZocDoc", "photo": "assets/team/laurent-crenshaw.jpg", "linkedin": "https://www.linkedin.com/in/laurentcrenshaw", "twitter": "https://x.com/LCrenshaw" },
+        { "name": "Ryan Walker", "title": "Member of the Board, FAI Action", "org": "Manager, External Relations, Google", "photo": "assets/team/ryan-walker.jpg", "twitter": "https://x.com/ryanlwalker" },
+        { "name": "Parker Kasmer", "title": "Member of the Board, FAI Action", "org": "Vice President of Government Affairs, Mariana Minerals", "photo": "assets/team/parker-kasmer.jpg", "linkedin": "https://www.linkedin.com/in/parker-d-kasmer-1b589769/" }
+      ]
+    }
+  ],
+  "contact": {
+    "location": "Washington, DC",
+    "email": "info@faiaction.org",
+    "x": "@faiaction",
+    "xUrl": "https://x.com/faiaction",
+    "copyright": "© 2026 FAI Action. All Rights Reserved."
+  }
+}

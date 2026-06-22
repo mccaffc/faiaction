@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAI Action</title>
+  <meta name="description" content="FAI Action — the 501(c)(4) affiliate of the Foundation for American Innovation." />
+  <meta name="theme-color" content="#121212" />
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <button class="toggle" id="gridToggle" aria-pressed="false" title="Toggle grid (G)">
+    <span class="dot"></span><span class="lbl">Grid</span>
+  </button>
+
+  <!-- ============ SPLASH ============ -->
+  <header class="splash spread">
+    <img class="splash__texture" src="./assets/splash-field.png" alt="" aria-hidden="true" />
+    <div class="splash__scrim" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="guides" aria-hidden="true"><div class="cols"></div><div class="rows"></div><div class="mline l"></div><div class="mline r"></div></div>
+      <div class="splash__inner">
+        <!-- Official drawn stacked lockup (composited, never re-typed) -->
+        <svg class="splash__mark" viewBox="0 0 586 559" role="img" aria-label="FAI Action" xmlns="http://www.w3.org/2000/svg">
+          <path class="fill" d="M28.39,2.31l118.57,145.6L28.39,293.51V2.31ZM110.26,147.91l-53.42-65.6v131.2l53.42-65.6Z"/>
+          <path class="fill" d="M152.21,2.32l118.58,145.59-118.58,145.6V2.32ZM234.09,147.91l-53.43-65.6v131.21l53.43-65.61h0Z"/>
+          <polygon class="fill" points="400.28 2.67 400.28 40.34 351.48 40.34 351.48 120.25 394.49 120.25 394.49 155.03 351.48 155.03 351.48 292.48 303.1 292.48 303.1 2.67 400.28 2.67"/>
+          <path class="fill" d="M492.69,2.67l31.84,289.81h-45.49l-7.44-79.49h-28.95l-7.86,79.49h-43.42L422.39,2.67h70.3ZM468.29,176.97l-10.75-116.75-11.58,116.75h22.33Z"/>
+          <rect class="fill" x="533.92" y="2.25" width="49.63" height="290.23"/>
+          <path class="fill" d="M83.86,318.36l25.65,233.19h-36.64l-6-63.96h-23.32l-6.33,63.96H2.25l24.98-233.19h56.63ZM64.21,458.61l-8.66-93.94-9.33,93.94h17.99Z"/>
+          <path class="fill" d="M206.45,458.94v55.96c0,26.99-15.32,41.64-44.3,41.64s-44.97-14.65-44.97-43.64v-158.23c0-23.65,13.66-40.97,44.97-40.97s44.3,16.65,44.3,38.31v46.63h-36.31v-40.64c0-5.99-2.66-8.32-7.66-8.32-4.66,0-7.33,2.66-7.33,8.32l.34,154.9c0,7.33,1.99,10.33,7.32,10.33,5.67,0,7.33-3.33,7.33-10.33v-53.96h36.31Z"/>
+          <polygon class="fill" points="308.01 318.36 308.01 348.34 281.36 348.34 281.36 551.55 241.39 551.55 241.39 348.34 214.74 348.34 214.74 318.36 308.01 318.36"/>
+          <rect class="fill" x="319.05" y="318.03" width="39.97" height="233.52"/>
+          <path class="fill" d="M464.61,354.67v160.23c0,26.99-16.99,41.64-45.97,41.64s-44.98-14.65-44.98-43.64v-158.23c0-23.65,13.66-40.97,44.98-40.97s45.97,19.32,45.97,40.97h0ZM426.63,512.9v-154.9c0-5.99-2.66-8.32-7.66-8.32-4.67,0-7.33,2.66-7.33,8.32l.33,154.9c0,7.33,2,10.33,7.33,10.33,5.66,0,7.33-3.33,7.33-10.33h0Z"/>
+          <polygon class="fill" points="583.55 318.36 583.55 551.55 544.24 551.55 512.59 414.63 512.59 551.55 478.61 551.55 478.61 318.36 524.25 318.36 550.23 439.28 550.23 318.36 583.55 318.36"/>
+        </svg>
+        <hr class="signal" />
+        <p class="splash__subtitle" id="subtitle"></p>
+      </div>
+    </div>
+    <div class="splash__actions">
+      <a class="btn-touch" href="mailto:info@faiaction.org?subject=Learn%20more%20about%20FAI%20Action">Get in Touch</a>
+      <a class="splash__learn" href="#about" aria-label="Learn more — scroll past the splash">
+        <span>Learn more</span>
+        <svg viewBox="0 0 12 14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5l5 5 5-5"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- ============ DOCUMENT ============ -->
+  <main>
+    <section class="spread doc-spread" id="about">
+      <div class="wrap">
+        <div class="guides" aria-hidden="true"><div class="cols"></div><div class="rows"></div><div class="mline l"></div><div class="mline r"></div></div>
+        <div class="grid">
+          <div class="band reveal">
+            <div class="section__rail col-rail"><span class="rail-label" id="about-label">About</span></div>
+            <div class="section__body col-body">
+              <p class="lead" id="about-lead"></p>
+              <div class="about__body" id="about-body"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="spread doc-spread" id="group-0">
+      <div class="wrap">
+        <div class="guides" aria-hidden="true"><div class="cols"></div><div class="rows"></div><div class="mline l"></div><div class="mline r"></div></div>
+        <div class="grid">
+          <div class="band reveal">
+            <div class="section__rail col-rail"><span class="rail-label" id="group-0-label">Team</span></div>
+            <div class="section__body col-body">
+              <div class="staff__list" id="group-0-list"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="spread doc-spread" id="group-1">
+      <div class="wrap">
+        <div class="guides" aria-hidden="true"><div class="cols"></div><div class="rows"></div><div class="mline l"></div><div class="mline r"></div></div>
+        <div class="grid">
+          <div class="band reveal">
+            <div class="section__rail col-rail"><span class="rail-label" id="group-1-label">Board</span></div>
+            <div class="section__body col-body">
+              <div class="staff__list" id="group-1-list"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="spread footer-spread">
+    <div class="wrap">
+      <div class="guides" aria-hidden="true"><div class="cols"></div><div class="rows"></div><div class="mline l"></div><div class="mline r"></div></div>
+      <div class="grid">
+        <div class="band reveal">
+          <div class="col-rail"><hr class="footer__rule" /><div class="footer__org">FAI Action</div></div>
+          <div class="footer__contact col-body" id="footer-contact"></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+  <script src="./grid.js"></script>
+</body>
+</html>
