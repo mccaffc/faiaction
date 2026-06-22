@@ -131,7 +131,7 @@ body.grid-on .toggle .dot { background: var(--orange); }
 
 /* ============ SPLASH ============ */
 .splash { min-height: 100svh; overflow: hidden; }
-.splash__texture { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; object-fit: contain; object-position: left top; }
+.splash__texture { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; object-fit: cover; object-position: left top; }
 .splash .wrap { min-height: 100svh; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; }
 .splash__inner { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: flex-end; text-align: right; gap: var(--lh); }
 .splash__mark { width: clamp(300px, 42vw, 600px); height: auto; display: block; }
@@ -193,7 +193,7 @@ body.grid-on .toggle .dot { background: var(--orange); }
 .footer__rule { height: 2px; width: 64px; background: var(--orange); border: 0; margin: 0 0 var(--lh); }
 .footer__org { font-family: var(--font-cond); font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ash); }
 .footer__lockup { width: 200px; height: auto; display: block; }
-.footer__contact { font-family: var(--font-mono); font-size: 13px; line-height: 1.7; color: var(--pewter); letter-spacing: 0.02em; }
+.footer__contact { font-family: var(--font-mono); font-size: 13px; line-height: 1.7; color: var(--pewter); letter-spacing: 0.02em; text-align: right; }
 .footer__contact a { text-decoration: underline; text-underline-offset: 3px; transition: color 0.15s var(--ease-out); }
 .footer__contact a:hover { color: var(--orange); }
 .footer__copy { color: var(--ash); margin-top: var(--bl); }
