@@ -11,7 +11,6 @@ faiaction/                  (lives under FAI/FAI Sites/)
   index.html        splash + about + staff + footer (spread / wrap / grid / band)
   styles.css        FAI Action tokens + the IBM 2x grid (one source of truth)
   app.js            renders content.json into the page
-  grid.js           grid overlay toggle (G key) + optical ink alignment
   content.json      ← the editable content (about, staff, contact)
   admin/index.html  GUI editor: edit + download content.json
   assets/           official lockup + chevron SVGs, favicon
@@ -23,7 +22,7 @@ Content is sourced verbatim from the live faiaction.org (home + about): the Our 
 
 The page's **copy is data**: `app.js` fetches `content.json` and renders the About, Staff, and contact. The splash lockup is the official drawn asset (composited, never re-typed — chevron law).
 
-**Grid system.** Built on the IBM 2x grid (16 columns · 32px gutters · 96px margins · 8px baseline), one source of truth in `styles.css :root`. Every block hangs on a column line via subgrid bands; press **`G`** (or the top-right toggle) to reveal the column + baseline overlay. Display ink is optically nudged onto its line at runtime (`grid.js`).
+**Grid system.** Built on the IBM 2x grid (16 columns · 32px gutters · 96px margins · 8px baseline), one source of truth in `styles.css :root`. Every block hangs on a column line via subgrid bands.
 
 **Schmalfette** is loaded via `@font-face` and exposed as `--font-display` / `.display`, but **not used** — FAI Action has no display face. It's wired in case it's ever needed.
 
