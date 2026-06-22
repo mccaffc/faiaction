@@ -126,18 +126,18 @@ body.grid-on .toggle { border-color: var(--orange); }
 body.grid-on .toggle .dot { background: var(--orange); }
 
 /* ============ shared ============ */
-.rail-label { font-family: var(--font-cond); font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--pewter); }
+.rail-label { font-family: var(--font-serif); font-weight: 600; font-size: 30px; line-height: 36px; color: var(--smoke); }
 .signal { height: 2px; width: 64px; background: var(--orange); border: 0; }
 
 /* ============ SPLASH ============ */
 .splash { min-height: 100svh; overflow: hidden; }
-.splash__texture { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; object-fit: cover; object-position: left center; opacity: 0.62; }
+.splash__texture { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; object-fit: cover; object-position: left center; }
 .splash__scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(105deg, rgba(18,18,18,0) 38%, rgba(18,18,18,0.72) 86%); }
 .splash .wrap { min-height: 100svh; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; }
 .splash__inner { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: flex-end; text-align: right; gap: var(--lh); }
-.splash__mark { width: clamp(180px, 22vw, 256px); height: auto; display: block; }
+.splash__mark { width: clamp(300px, 42vw, 600px); height: auto; display: block; }
 .splash__mark .fill { fill: var(--smoke); }
-.splash__subtitle { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--pewter); margin: 0; }
+.splash__subtitle { font-family: var(--font-mono); font-weight: 500; font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--smoke); margin: 0; }
 /* actions — float in at the bottom-left; "Learn more" scrolls the page off the splash */
 .splash__actions {
   position: absolute; right: var(--margin); bottom: var(--lh); z-index: 2;
